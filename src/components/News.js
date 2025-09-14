@@ -47,7 +47,7 @@ export class News extends Component {
     async updateNews() {
         this.props.setProgress(10);
         
-       const url = `https://newsapi.org/v2/everything?q=${this.props.category}&sortBy=publishedAt&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+      const url = `https://gnews.io/api/v4/top-headlines?category=${this.props.category}&lang=en&country=us&max=${this.props.pageSize}&apikey=${this.props.apiKey}`;
         console.log("fetching URL:",url);
         this.setState({ loading: true });
 
@@ -121,7 +121,7 @@ export class News extends Component {
     fetchMoreData = async () => {  
       const nextPage = this.state.page + 1;
     
-        const url = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${nextPage}&pageSize=${this.props.pageSize}`;
+const url = `https://gnews.io/api/v4/top-headlines?category=${this.props.category}&lang=en&country=us&max=${this.props.pageSize}&apikey=${this.props.apiKey}`;
     // const fetchMoreData = async () => {   
     //     setPage(page+1) 
     //     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
