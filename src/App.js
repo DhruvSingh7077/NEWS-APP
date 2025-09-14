@@ -18,6 +18,15 @@ export default class App extends Component {
     progress:0
   }
 
+  // Add this method
+  componentDidMount() {
+    console.log('=== DEBUG INFO ===');
+    console.log('API Key loaded:', this.apiKey ? 'YES' : 'NO');
+    console.log('API Key first 5 chars:', this.apiKey ? this.apiKey.substring(0, 5) : 'undefined');
+    console.log('All REACT_APP vars:', Object.keys(process.env).filter(key => key.startsWith('REACT_APP')));
+    console.log('=================');
+  }
+
   setProgress = (progress)=>{
     this.setState({progress: progress})
   }
